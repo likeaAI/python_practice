@@ -29,7 +29,7 @@ with open("wether.txt", "w",encoding="utf8") as f:
         f.write("도시 : " + location.select_one("city").string + "\n")
         f.write("날씨 : " + location.select_one("wf").string + "\n")
         f.write("최저기온 : " + location.select_one("tmn").string + "\n")
-        f.write("최고기온 : " +  location.select_one("tmx").string + "\n")
+        f.write("최고기온 : " +  location.select_one("tmx").string + "\n" + "\n" + "\n")
 
 
 
