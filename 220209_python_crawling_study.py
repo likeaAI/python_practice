@@ -23,7 +23,18 @@ for location in soup.select("location") :
     print("최고기온 : ", location.select_one("tmx").string)
     print()
 
-# 실습 3  뉴스기사 크롤링
 
-# 링크 , 제목, 순으로 다음뉴스를 출력할것
+with open("wether.txt", "w",encoding="utf8") as f:
+    for location in soup.select("location") :
+        f.write("도시 : " + location.select_one("city").string + "\n")
+        f.write("날씨 : " + location.select_one("wf").string + "\n")
+        f.write("최저기온 : " + location.select_one("tmn").string + "\n")
+        f.write("최고기온 : " +  location.select_one("tmx").string + "\n")
+
+
+
+
+
+
+
 
