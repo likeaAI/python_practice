@@ -137,7 +137,119 @@ print('add - ' , userAdd(10,20))
 print('function address - ', userAdd) # 함수를 변수처럼 넣을 수 있을까 ?
 # -> <function userAdd at 0x000002C2DA2DAD40> 함수의 호출로 표현이 된다.
 f = userAdd # 기존 함수를 변수에 할당했다.
-print('f - add -' , f(10,20)) # 함수를 변수에 저장 # 이게 무슨의미일까 ?
+print('f - add -' , f(10,20)) # 함수를 변수에 저장
+                            # 이게 무슨의미일까 ? 함수만 할당한다. 기존함수에 들어간 ()값들은 상관없다.
+
 
 # 파이썬에서 모든것은 객체로 될수있다.
+
+# 함수를 다른 함수의 인자로 전달
+def userOperation(func, arg ) :
+    func(arg[0] ,arg[1])
+
+data = (10,20)
+result = userOperation(userAdd, data)
+print('result add-' , result)
+
+# 함수의 리턴값으로 다른 함수를 사용할 수 있다.
+# closure (함수 내부에 자료구조를 생성하여 값을 저장해 놓는 개념)
+def outter(x) :
+    def inner(y) :
+        return x + y
+    return inner  # outter 에 대한 리턴 , 보통 변수(value ) 리턴값을 줬는데 함수에 리턴값을 줘버리는 경우
+# caller
+# inner() 함수안에 함수 접근불가
+result = outter(5)
+
+# generator ? : 반복문 ?
+# - 장점 : 빠른 수행속도 , 적은 메모리 사용으로 인한 성능향상 ,쉽게 생각하면 for loop 구문
+
+def loopFunc(lst) :
+    result2 =[]
+    for tmp in lst :
+        result2.append(tmp**2)
+    return result2
+
+#caller
+data = [1,2,3,4,5]
+result2 = loopFunc(data)
+print('result -' , result2)
+
+def generatorFunc(lst) :
+    for tmp in lst :
+        yield tmp**2
+
+#caller
+result3 = generatorFunc(data)
+print('generator type- ' , type(result3))
+print('next -' , next(result3)) # 첫번째 값이 리턴
+print('next -' , next(result3)) # 두번재 값이 리턴
+print('next -' , next(result3))
+print('next -' , next(result3))
+
+# 리턴하지 않았는데 리턴값을 받았다라... / 루핑을 컨트롤 할수있다.
+# 대용량의 데이터 적은양의 메모리를 필요한 요소를 한줄씩 가져올수 있다.
+# ex) 10만건의 데이터를 for loop 쓰면 오래걸리니 건바이건으로 표현할수있다.
+
+# list 컴프레이션 활용
+lst = [tmp ** 2 for tmp in data]
+generator = (tmp **2 for tmp in data )
+print('type - ' , generator)
+
+for g in generator :
+    print(g)
+print("end for ~ ")
+for g in generator :
+    print(g)
+# 출력을 다하면 문자열이 반환 , 무한히 반복되지는 않는다.
+print('end for ~ ')
+print('generator -' , list(generator))
+
+# 파일 입출력
+'''
+- open(file = xxx , mode = "r|w|a" , encoding =xxxxx )
+- with open() as file  :
+'''
+# pandas 기반 입출력
+
+# def readText(path, mode ) :
+#     file = None
+#     try :
+#         file = open(path, mode , encoding='utf-8')
+#         print('file type - ' , type(file) , file)
+#         print('read -' , file.read())
+#     except Exception as e :
+#         print(str(e))
+#     else :
+#         print('read - "\n' , file.read())
+#     finally:
+#         if file != None : # file open 하는 시점에서 에러 코드를 견고하게 만들기 위해서 넣음
+#             file.close()
+
+#caller
+# readText('./data/greeting.txt' , "r")
+#
+# def writeTxt(path,mode) :
+#     file = open(path, mode="w" , encoding="utf-8")
+#     file.write("hi.welcome my home")
+#
+# # caller
+# writeTxt('./data/test.txt', "w")
+
+def with_open_file(path, mode , e ) :
+    with open(path, mode, encoding=e) as file :
+    # print(file.read()) # 전체 다 읽어옴
+    # print(file.readline()) # 1줄
+    # print(file.readlines())# 여러줄 리스트
+    # line = file.readline
+    # while line != '' :
+    # print(line.strip('\n'))
+        lst = file.readlines()
+        for s in lst :
+         print(s.strip("\n"))
+
+with_open_file('./data/greeting.txt' , "r" , "utf8")
+
+# read 문자열
+# readlies 리스트
 
