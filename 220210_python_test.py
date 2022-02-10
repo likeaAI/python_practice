@@ -56,15 +56,21 @@
 
 
 def que03():
+    adress = str(input("주소를 입력해주세요 : "))  # 포문 안에 있으면 무한루프 걸린다. 이유를 명확히 파악필요
     with open("zipcode.txt" ,"r" , encoding="utf-8") as f :
-        adress = str(input("주소를 입력해주세요 : ")) # 포문 안에 있으면 무한루프 걸린다. 이유를 명확히 파악필요
-        for i in range(0,65000) : # 좀더 멋있는 식이 있겠지만 일단 이걸로 ????
-            line = f.readline()
-            renew = line.split("\t")
-            serch = renew.count(adress) # count랑 startwith 는 값을 왜 true랑 false로 반환하냐 ? 해깔리게
-                                        # startswith 는 리스트라 못쓴다고 한다......
-            if serch == True : # serch 값이 투르면 트루값 만 해당하는 line을값을 print해라
-                print(line)
+        try :
+            if adress == int :
+                print("숫자는 입력할수 없습니다. ")
+        else :
+            for i in range(0,65000) : # 좀더 멋있는 식이 있겠지만 일단 이걸로 ????
+                line = f.readline()
+                renew = line.split("\t")
+                serch = renew.count(adress) # count랑 startwith 는 값을 왜 true랑 false로 반환하냐 ? 해깔리게
+                                            # startswith 는 리스트라 못쓴다고 한다......
+                if serch == True : # serch 값이 투르면 트루값 만 해당하는 line을값을 print해라
+                    print(line)
+        except ValueError :
+                print("다시 입력하세요 ")
 
 que03()
 
