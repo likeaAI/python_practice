@@ -1,3 +1,4 @@
+
 #1 Que 1
 #1) special_words.txt 파일로부터 문자 'c' 포함된 단어를 출력
 #2)  단어를 출력할때 등장한 순서대로 출력
@@ -25,13 +26,22 @@ with open("special_words.txt" , "r" , encoding="utf-8") as f :
     lines = [i.strip(',.') for i in lines]
     print(lines)
     for word in lines :
-        if 5 >= len(word) :
+        if 10 >= len(word) :
             cnt += 1
             print(word)
     print("10글자 이하 단어수는 : {} 개".format(cnt))
 
 
 #3 zipcod.txt
-# input()함수를 이용해서
+# input()함수를 이용해서 동 이름을 입력받아
+# 예)개포
+# 해당하는 동의 주소를 출력하는 함수를 정의한다.
+# hint : \t
+# startswith() 함수
+# 예외처리
+
+#! 각 행을 포구문형식으로 한줄씩 읽으면서 데이터가 조건이 맞으면(input) if문을 이용해서 함수로 구분후 반환한다.
+def que03():
+    pass
 
 
