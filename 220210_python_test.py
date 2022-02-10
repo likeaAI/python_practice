@@ -45,8 +45,36 @@ def que03():
     pass
 
 with open("zipcode.txt" ,"r" , encoding="utf-8") as f :
-   for i in range(1,10) :
-    print(f.readline(i))
+    for i in range(0,70000) : # 좀더 멋있는 식이 있겠지만 일단 이걸로
+        line = f.readline()
+        renew = line.split("\t")
+        serch = renew.count("충북") # count랑 startwith 는 값을 왜 true랑 false로 반환하냐 ? 해깔리게
+        if serch == True : # serch 값이 투르면 트루값 만 해당하는 line을값을 print해라
+            print(line)
+        if not line : break
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
