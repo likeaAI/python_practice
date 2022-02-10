@@ -15,6 +15,7 @@ soup = BeautifulSoup(respones.text, "lxml")
 # 그닥 좋은방버은 아닌데
 uploads = soup.select("ol > li > a" )
 for i in range(1,10) :
+    print(i , "위")
     print("링크 " + "https://comic.naver.com/"+uploads[i].attrs['href'])
     print("제목" + uploads[i].string)
 
