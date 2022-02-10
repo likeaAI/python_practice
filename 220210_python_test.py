@@ -44,4 +44,25 @@ with open("special_words.txt" , "r" , encoding="utf-8") as f :
 def que03():
     pass
 
+with open("zipcode.txt" ,"r" , encoding="utf-8") as disk :
+    dong = str(input("동을 입력하세요 : "))
+    originjuso = disk.readline()
+    count = 0
+    while True :
+        juso = originjuso.split()
+        juso = [i.strip(',.') for i in juso]
+        if dong in juso :
+            count += 1
+            print(originjuso)
+        elif :
+            if originjuso == False :
+                break
+
+            print("검색 동수 : ", count, "개")
+
+
+ # for word in lines :
+ #        if 'c' in word :
+ #            print(word)
+
 
