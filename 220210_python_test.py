@@ -3,13 +3,13 @@
 #1) special_words.txt 파일로부터 문자 'c' 포함된 단어를 출력
 #2)  단어를 출력할때 등장한 순서대로 출력
 
-with open("special_words.txt" , "r" , encoding="utf-8") as f :
-    lines = f.readline().split()
-    lines = [i.strip(',.') for i in lines]
-    print(lines)
-    for word in lines :
-        if 'c' in word :
-            print(word)
+# with open("special_words.txt" , "r" , encoding="utf-8") as f :
+#     lines = f.readline().split()
+#     lines = [i.strip(',.') for i in lines]
+#     print(lines)
+#     for word in lines :
+#         if 'c' in word :
+#             print(word)
 
 # 초반에 핵심 키워드는 맞춤 구현을 못함
 # if in의 사용법은 여전히 못하고
@@ -20,16 +20,16 @@ with open("special_words.txt" , "r" , encoding="utf-8") as f :
 #que 2
 # special_words.txt 파일로부터 단어의 길이가 10이하의 단어를 출력하고 카운팅하세요
 
-with open("special_words.txt" , "r" , encoding="utf-8") as f :
-    cnt = 0
-    lines = f.readline().split()
-    lines = [i.strip(',.') for i in lines]
-    print(lines)
-    for word in lines :
-        if 10 >= len(word) :
-            cnt += 1
-            print(word)
-    print("10글자 이하 단어수는 : {} 개".format(cnt))
+# with open("special_words.txt" , "r" , encoding="utf-8") as f :
+#     cnt = 0
+#     lines = f.readline().split()
+#     lines = [i.strip(',.') for i in lines]
+#     print(lines)
+#     for word in lines :
+#         if 10 >= len(word) :
+#             cnt += 1
+#             print(word)
+#     print("10글자 이하 단어수는 : {} 개".format(cnt))
 
 
 #3 zipcod.txt
@@ -44,25 +44,13 @@ with open("special_words.txt" , "r" , encoding="utf-8") as f :
 def que03():
     pass
 
-with open("zipcode.txt" ,"r" , encoding="utf-8") as disk :
-    dong = str(input("동을 입력하세요 : "))
-    originjuso = disk.readline()
-    count = 0
-    while True :
-        juso = originjuso.split()
-        juso = [i.strip(',.') for i in juso]
-        if dong in juso :
-            count += 1
-            print(originjuso)
-        elif :
-            if originjuso == False :
-                break
-
-            print("검색 동수 : ", count, "개")
+with open("zipcode.txt" ,"r" , encoding="utf-8") as f :
+   for i in range(1,10) :
+    print(f.readline(i))
 
 
- # for word in lines :
- #        if 'c' in word :
- #            print(word)
+
+
+
 
 
