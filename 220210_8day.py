@@ -74,4 +74,70 @@ def exceptionFunc(lst) :
 # for 안이라면 에러가 생겨도 다시 for문으로 돌아가서 재실행하기 때문에 'num'을 제외한 나머지가 출력된다.
 # caller
 usrlsr = [10,20,25,'num' ,40 ,50]
-exceptionFunc(usrlsr)
+# exceptionFunc(usrlsr)
+
+# 정상인데 예외로 만든다면 ?
+# 사용자 정의 예외클래스를 만들 수 있다.
+
+class UserNegativeDivisionError(Exception) :  # 인위적으로 예외처리를 하고싶은 구문
+    def __init__(self,msg) :
+        self.msg = msg
+
+
+def positiveDivide(x , y) :
+    if (y  <  0) :
+        raise UserNegativeDivisionError('음수로 나눌 수 없습니다.')
+    else :
+        return x/y
+
+try :
+    result = positiveDivide(10, -1 )
+    print(' call positive func - ' , result)
+except UserNegativeDivisionError as e :
+    print(e.msg)
+except ZeroDivisionError as e :
+    print(e.args[0])
+print('progoramming end - ')
+
+# 예외에 처리하는 문법에 대한 이해가 필요하다. 예외 오류를 미리 예측하기는 힘들다.
+# 특정 조건을 예외를 일으킬수있어야한다.
+
+
+# magic function __xxxx__() 알고있어야하는거 몇가지
+class MagicClass(object) :
+    def __init__(self):
+        print('객체 생성시 호출 ')
+    def __del__(self):
+        print('객체 삭제시 호출 ')
+    def __str__(self):
+        return('이제는 주소값이 아니라 문자열이 출력')
+
+
+obj = MagicClass() # 매직함수 리스트
+print('dor - ' , dir(obj))
+print(obj) # obj.__str__() 오버라이딩 해서 원하는 문자열로 리턴시켜준다. 생략되어있음
+            # 주소값이 직히면 문자열로 오버라이딩해서 다시 사용하자.
+
+# 알면 좋은 매직함수
+'''
+__repr__
+__str__
+
+'''
+
+
+# 일급함수, 일급 클래스 ? first class ? 프로그램 유연성 확대 목적 ( 꼭 알아야되는건 아님)
+# - 변수에 함수를 저장할 수 있다.
+# - 함수를 다른 함수의 인자로 전달할수 있다.
+
+def userAdd(x,y ):
+    return x + y
+
+print('add - ' , userAdd(10,20))
+print('function address - ', userAdd) # 함수를 변수처럼 넣을 수 있을까 ?
+# -> <function userAdd at 0x000002C2DA2DAD40> 함수의 호출로 표현이 된다.
+f = userAdd # 기존 함수를 변수에 할당했다.
+print('f - add -' , f(10,20)) # 함수를 변수에 저장 # 이게 무슨의미일까 ?
+
+# 파이썬에서 모든것은 객체로 될수있다.
+
