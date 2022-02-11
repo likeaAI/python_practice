@@ -61,9 +61,15 @@ from  statistics import mean ()
 #     for redata in data :
 #         print(redata)
 
-with open('./data/mpg.txt' , 'r' , encoding ='utf-8') as file :
-    data = file.readline() # str 이대로 반복문을 돌려버리면 단어가 아니라 글자를 반환한다.
-    redata = data.split(",")
-
-    while data != '' : # 공백이 생기면 false 로 반환하여 루프 중지
+mpgLst = []
+with open('data/mpg.txt', 'r' , encoding='utf-8') as file :
+    file.readline()
+    line = file.readline()
+    while line != '' :
+        row = line.strip('\n').split(',') # 텍스트파일을 정리
+        mpgLst.append(row)
+        line = file.readline()
+print(mpgLst)
+print(mpgLst[0][4])
+print(type(int(mpgLst[0][4]))) # int형으로 추출하는것이 가능하다.
 
