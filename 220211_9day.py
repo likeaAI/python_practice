@@ -51,8 +51,8 @@ def load_file(filePath) :
     data = None
     if filePath.split('.')[-1] == 'csv' :
         data = pd.read_csv(filePath, encoding="ms949" ) # header =None 헤더를 데이터로 반환해버린다.
-    elif filePath.split('.')[-1] == 'xls' :
-        pass
+    elif filePath.split('.')[-1] == 'xlsx' :
+        data = pd.ExcelFile(filePath)
     else :
          pass
     return data
@@ -75,9 +75,18 @@ def csv_file(filepath) :
 
     print(lblFreq)
 
+# caller
+# csv_file('./data/service_bmi.csv')
 
+def excel_file(filePath) :
+    data = load_file(filePath)
+    print('type - ', type(data))
+    data = data.parse('sam_kospi')
+    print(data.info())
+    print(data.describe())
 
 # caller
+excel_file('./data/sam_kospi.xlsx')
 
-csv_file('./data/service_bmi.csv')
+
 
