@@ -43,15 +43,18 @@
 #! 각 행을 포구문형식으로 한줄씩 읽으면서 데이터가 조건이 맞으면(input) if문을 이용해서 함수로 구분후 반환한다.
 def que03():
     adress = str(input("주소를 입력해주세요 : "))
-    with open("zipcode.txt" ,"r" , encoding="utf-8") as f :
+    try :
+        with open("zipcode.txt" ,"r" , encoding="utf-8") as f :
 
-        for i in range(0,65000) : # 좀더 멋있는 식이 있겠지만 일단 이걸로 ????
-            line = f.readline()
-            renew = line.split("\t")
-            serch = renew[3].count(adress) # count랑 startwith 는 값을 왜 true랑 false로 반환하냐 ? 해깔리게
-                                        # startswith 는 리스트라 못쓴다고 한다......
-            if serch == True : # serch 값이 투르면 트루값 만 해당하는 line을값을 print해라
-                print(line)
+            for i in range(0,65000) : # 좀더 멋있는 식이 있겠지만 일단 이걸로 ????
+                line = f.readline()
+                renew = line.split("\t")
+                serch = renew[3].count(adress) # count랑 startwith 는 값을 왜 true랑 false로 반환하냐 ? 해깔리게
+                                            # startswith 는 리스트라 못쓴다고 한다......
+                if serch == True : # serch 값이 투르면 트루값 만 해당하는 line을값을 print해라
+                    print(line)
+    except Exception as e :
+        print(str(e))
 
 
 
@@ -71,7 +74,7 @@ def que03_1() :
 
 
 
-que03_1()
+que03()
 
 
 
