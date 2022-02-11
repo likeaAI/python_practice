@@ -34,15 +34,15 @@ hint - mgp.py
 import mpg as m (클래스로 가져와라 )
 from  statistics import mean ()
 '''
-# 데이터를 가져오기 , re.version 1.2
-mpgLst = []
-with open('data/mpg.txt', 'r' , encoding='utf-8') as file :
-    file.readline()
-    line = file.readline()
-    while line != '' :
-        row = line.strip('\n').split(',') # 텍스트파일을 정리
-        mpgLst.append(row)
-        line = file.readline()
+# 데이터를 가져오기
+# mpgLst = []
+# with open('data/mpg.txt', 'r' , encoding='utf-8') as file :
+#     file.readline()
+#     line = file.readline()
+#     while line != '' :
+#         row = line.strip('\n').split(',') # 텍스트파일을 정리
+#         mpgLst.append(row)
+#         line = file.readline()
 
 # class를 사용할 생각이라면..
 #     while line != '' :
@@ -52,4 +52,17 @@ with open('data/mpg.txt', 'r' , encoding='utf-8') as file :
 #         line = file.readline()
 
 # print(mpgLst) # mpgLst[0][0]
-print(mpgLst[0][0]) # audi
+# print(mpgLst[0][0]) # audi
+
+# 본인이 여기서부터 코딩 , # 먼저 csv 파일을 불러올것.
+#
+# with open('./data/mpg.txt' , 'r' , encoding ='utf-8') as file :
+#     data = file.readlines()
+#     for redata in data :
+#         print(redata)
+
+with open('./data/mpg.txt' , 'r' , encoding ='utf-8') as file :
+    data = file.readline() # str 이대로 반복문을 돌려버리면 단어가 아니라 글자를 반환한다.
+    for redata in data :
+        print(redata)
+
