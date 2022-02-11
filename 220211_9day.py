@@ -56,15 +56,28 @@ def load_file(filePath) :
     else :
          pass
     return data
+# label 컬럼을 활용하여 빈도수를 출력하는 구문을 작성해본다면 ?
+# dict 형식으로
+# 내가 생각한 정리
+# 1. 라벨을 분리 , 2. 라벨 갯수를 체크 3. 딕트타입으로 재정의 ex ) 변수 =  { label1 : 빈도수 , .........}
 
 def csv_file(filepath) :
     data = load_file(filepath)
-    print('type -' , type(data))
-    print(data.head())
-    print(data.info())
-    print(type(data.height))
-    print(data['height'])
-    print(data.label)
+    # print('type -' , type(data))
+    # print(data.head())
+    # print(data.info())
+    # print(type(data.height))
+    # print(data['height'])
+    # print(data.label)
+    lblFreq = {}
+    for key in data.label :
+        lblFreq[key] = lblFreq.get(key, 0) + 1
+
+    print(lblFreq)
+
+
 
 # caller
+
 csv_file('./data/service_bmi.csv')
+
