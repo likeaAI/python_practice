@@ -72,7 +72,6 @@ def que03_1() :
             print(str(e))
 
 
-
 que03()
 
 

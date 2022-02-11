@@ -54,7 +54,16 @@ def load_file(filePath) :
     elif filePath.split('.')[-1] == 'xlsx' :
         data = pd.ExcelFile(filePath)
     else :
-         pass
+         with open(filePath, "r" , encoding="utf-8") as file :  # 분석쪽에서 사용하려는 data.Frame 으로 바꿔야한다.
+            lines =file.readlines()
+            # print(lines[0] , lines[0])
+            # print(type(j.loads(lines[0])))
+            lines = [j.loads(line) for line in lines]
+            # print(type(lines[0]))
+            # print(lines[0])
+            data = pd.DataFrame(data) # 나중에 데이터프레임 배움 일단 넘어감
+
+
     return data
 # label 컬럼을 활용하여 빈도수를 출력하는 구문을 작성해본다면 ?
 # dict 형식으로
@@ -76,7 +85,7 @@ def csv_file(filepath) :
     print(lblFreq)
 
 # caller
-# csv_file('./data/service_bmi.csv')
+csv_file('./data/service_bmi.csv')
 
 def excel_file(filePath) :
     data = load_file(filePath)
@@ -88,5 +97,46 @@ def excel_file(filePath) :
 # caller
 excel_file('./data/sam_kospi.xlsx')
 
+# json
+# 네트워크 상에서 표준프로토콜로 사용되는 파일 형식
+# json -> python(dict, list) : decoding
+# json <- python(dict, list) : encoding(dumps())
+
+import json as j
+tmpDict = {'id ' : 'jslim' , 'pwd' : 'jslim'}
+print(type(tmpDict)) # dict 타입 확인
+
+# dict -> json
+jsonDict = j.dumps((tmpDict))
+print(type(jsonDict)) # str 타입 확인 문자열이라면  다시 디코딩해서 dict타읍으로 바궈야됨...
+
+# json -> dict
+pyDict = j.loads(jsonDict)
+print(type(pyDict)) # 딕트 타입으로 확인
 
 
+def json_file(filePath) :
+    data = load_file(filePath)
+    print('type - ' , type(data))
+    print(data.info())
+    print()
+    print(data.head())
+
+# caller
+# json_file('./data/usagov_bitly.txt')
+
+
+def spam_func(filePath) :
+    data = load_file(filePath)
+    print('spam data type - ' , type(data))
+    print('data - ')
+    print(data.info()) # 이건 인덱싱이 아니다. pandas 0번째의 열의 항목을 의미한다.
+    target = data[0]
+    msg = data[1]
+    print('target = \n' , target )
+    target = [1 if t == 'spam' else 0 for t in target ] # list 컴프리핸션을 연습해보자. ...
+    print('target emcpdomg - \n' , target,  type(target))
+# caller
+spam_func('./data/spam_data.csv')
+
+# 함수, 변수타입, 리스트컴프리핸션 강화 학습
