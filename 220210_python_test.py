@@ -57,13 +57,12 @@ def que03():
         print(str(e))
 
 
-
 def que03_1() :
     dong = input('동 입력하세요 예) 개포 : ')
     try :
         with open("zipcode.txt", "r" , encoding="utf-8") as file :
             line2 = file.readline()
-            while line2 :
+            while line2 : # line2 가 계속 True 걸리다가 마지막에 Flase걸리면서 종료...;
                 addr_lst = line2.split("\t")
                 if addr_lst[3].startswith(dong) :
                     print(addr_lst)
