@@ -41,42 +41,37 @@
 # 예외처리
 
 #! 각 행을 포구문형식으로 한줄씩 읽으면서 데이터가 조건이 맞으면(input) if문을 이용해서 함수로 구분후 반환한다.
-# def que03():
-#     with open("zipcode.txt" ,"r" , encoding="utf-8") as f :
-#         adress = str(input("주소를 입력해주세요 : ")) # 포문 안에 있으면 무한루프 걸린다. 이유를 명확히 파악필요
-#         for i in range(0,65000) : # 좀더 멋있는 식이 있겠지만 일단 이걸로 ????
-#             line = f.readline()
-#             renew = line.split("\t")
-#             serch = renew.count(adress) # count랑 startwith 는 값을 왜 true랑 false로 반환하냐 ? 해깔리게
-#                                         # startswith 는 리스트라 못쓴다고 한다......
-#             if serch == True : # serch 값이 투르면 트루값 만 해당하는 line을값을 print해라
-#                 print(line)
-#
-# que03()
-
-
 def que03():
-    adress = str(input("주소를 입력해주세요 : "))  # 포문 안에 있으면 무한루프 걸린다. 이유를 명확히 파악필요
+    adress = str(input("주소를 입력해주세요 : "))
     with open("zipcode.txt" ,"r" , encoding="utf-8") as f :
-        try :
-            if adress == int :
-                print("숫자는 입력할수 없습니다. ")
-        else :
-            for i in range(0,65000) : # 좀더 멋있는 식이 있겠지만 일단 이걸로 ????
-                line = f.readline()
-                renew = line.split("\t")
-                serch = renew.count(adress) # count랑 startwith 는 값을 왜 true랑 false로 반환하냐 ? 해깔리게
-                                            # startswith 는 리스트라 못쓴다고 한다......
-                if serch == True : # serch 값이 투르면 트루값 만 해당하는 line을값을 print해라
-                    print(line)
-        except ValueError :
-                print("다시 입력하세요 ")
 
-que03()
+        for i in range(0,65000) : # 좀더 멋있는 식이 있겠지만 일단 이걸로 ????
+            line = f.readline()
+            renew = line.split("\t")
+            serch = renew[3].count(adress) # count랑 startwith 는 값을 왜 true랑 false로 반환하냐 ? 해깔리게
+                                        # startswith 는 리스트라 못쓴다고 한다......
+            if serch == True : # serch 값이 투르면 트루값 만 해당하는 line을값을 print해라
+                print(line)
 
 
 
+def que03_1() :
+    dong = input('동 입력하세요 예) 개포 : ')
+    try :
+        with open("zipcode.txt", "r" , encoding="utf-8") as file :
+            line2 = file.readline()
+            while line2 :
+                addr_lst = line2.split("\t")
+                if addr_lst[3].startswith(dong) :
+                    print(addr_lst)
+                line2 = file.readline()  # 작업이 끝나고 다시 읽어드리는 명령어
 
+    except Exception as e :
+            print(str(e))
+
+
+
+que03_1()
 
 
 
