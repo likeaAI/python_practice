@@ -63,6 +63,7 @@ from  statistics import mean ()
 
 with open('./data/mpg.txt' , 'r' , encoding ='utf-8') as file :
     data = file.readline() # str 이대로 반복문을 돌려버리면 단어가 아니라 글자를 반환한다.
-    for redata in data :
-        print(redata)
+    redata = data.split(",")
+
+    while data != '' : # 공백이 생기면 false 로 반환하여 루프 중지
 
