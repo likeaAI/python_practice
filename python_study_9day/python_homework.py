@@ -34,7 +34,7 @@ hint - mgp.py
 import mpg as m (클래스로 가져와라 )
 from  statistics import mean ()
 '''
-# 데이터를 가져오기 , re.version 1.2
+# 데이터를 가져오기
 mpgLst = []
 with open('data/mpg.txt', 'r' , encoding='utf-8') as file :
     file.readline()
