@@ -74,7 +74,7 @@ with open('data/mpg.txt', 'r' , encoding='utf-8') as file :
 # print(type(int(mpgLst[0][4]))) # int형으로 추출하는것이 가능하다.
 # with open('data/mpg.txt', 'r' , encoding='utf-8') as myfile:
 #     total_lines = sum(1 for line in myfile)
-# print(type(total_lines))
+# print(type(total_lines)) 235
 # while 구문은 생각이 안나서 for 구문 텍스트 안에 전체 행수를 구하고 그걸 그냥
 # for문에 때려박았다 ;
 
@@ -82,4 +82,6 @@ for i in range(0 , 234) : # 이걸 프로그램상으로 어떻게 구현해야�
     hwl = [mpgLst[i][1], mpgLst[i][4] , mpgLst[i][8]]
     # print(hwl) # 모든 리스트에서 배기량 의 값을 뽑아냈다. 그렇다면 연비도 같이 표현할수있을까 , 딕셔너리로 같이 묶었다.
     # hwl 딕셔너리의 키값은 배기량이고 벨류는 연비를 의미한다. 이걸 사용할수 있을까 ?
-    # print(type(hwl)) # list 안에 list
+
+
+
