@@ -1,5 +1,5 @@
 '''
-# 1. displ(배기량)이 4 이하인 자동차와 5 이상인 자동차 중
+# 1. displ(배기량)이 4 이하인 자동차와 6 이상인 자동차 중
 # 어떤 자동차의 hwy(고속도로 연비)가 평균적으로 더 높은지 확인하세요.
 
 # 2. 자동차 제조 회사에 따라 도시 연비가 다른지 알아보려고 한다.
@@ -60,7 +60,7 @@ from  statistics import mean ()
 #     data = file.readlines()
 #     for redata in data :
 #         print(redata)
-
+from  statistics import mean
 mpgLst = []
 with open('data/mpg.txt', 'r' , encoding='utf-8') as file :
     file.readline() # header 를 건너뛴다..
@@ -81,7 +81,15 @@ hwl4 = []
 hwl6 = []
 for i in range(0 , 234) : # 이걸 프로그램상으로 어떻게 구현해야할까...
     hwl = [mpgLst[i][1], mpgLst[i][4] , mpgLst[i][8]]
-    hwl4 = hwl.append()
+#     for j in range(0,234) :
+#         if int(mpgLst[j][4]) <= 4 :
+#             hwl4.append(hwl)
+#         elif int(mpgLst[j][4]) >= 6 :
+#             hwl6.append(hwl)
+#     # 배기량을 기준으로 4와 6을 리스트로 분리 완료
+# print(hwl4)
+#
+
 
     # print(hwl) # 모든 리스트에서 배기량 의 값을 뽑아냈다. 그렇다면 연비도 같이 표현할수있을까 , 딕셔너리로 같이 묶었다.
     # hwl 딕셔너리의 키값은 배기량이고 벨류는 연비를 의미한다. 이걸 사용할수 있을까 ?
