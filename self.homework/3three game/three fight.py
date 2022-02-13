@@ -20,22 +20,23 @@ match = 0
 # 컴퓨터와 가위바위보 게임 구현
 # 모두 비기는 경우의 수
 for i in range(10) :
-    user = input("가위,바위, 보 중에 낼것을 입력해주세요 : ")  # 나중에 가위바위보만 입력하게 할수있을까  ?
-    com = 1
+
+    com = rd.randint(1,4)
     comvs = gamedict.get(com)
 
     if user1 == 3 :
-        print("사용자가 {}판으로 이겼습니다.".format(user1))
+        print("총 {}판중 사용자가 {}판으로 이겼습니다.".format(match,user1))
         print("사용자가 {}점 ,컴퓨터가{}점 ".format(user1, cpu))
+
         break
     elif cpu == 3 :
-        print("컴퓨터가 {}판으로 이겼습니다.")
-        print("사용자가 {}점 , 컴퓨터가{}점 ".format(user1, cpu))
+        print("총 {}판중 컴퓨터가 {}판으로 이겼습니다.".format(cpu,user1))
+        print("사용자가 {}점 , 컴퓨터가 {} 점 ".format(user1, cpu))
         break
-
+    user = input("가위,바위, 보 중에 낼것을 입력해주세요 : ")  # 나중에 가위바위보만 입력하게 할수있을까  ?
 
     # user 가위를 냈을때
-    elif user == "가위" and comvs == "바위" :
+    if user == "가위" and comvs == "바위" :
         cpu += 1
         print("{} vs {} 컴퓨터가 이겼습니다.".format(user,comvs))
 
@@ -45,20 +46,20 @@ for i in range(10) :
 
     # user 가 바위를 냈을때
 
-    elif user == gamedict.get(2) and comvs == "보" :
+    elif user == "바위" and comvs == "보" :
         cpu += 1
         print("{} vs {} 컴퓨터가 이겼습니다.".format(user,comvs))
 
-    elif user == gamedict.get(1) and comvs == "가위" :
+    elif user == "바위" and comvs == "가위" :
         user1 += 1
         print("{} vs {} 사용자가 이겼습니다.".format(user,comvs))
 
     # user 가 보를 냈을때
-    elif user == gamedict.get(3) and comvs == "가위" :
+    elif user == "보" and comvs == "가위" :
         cpu += 1
         print("{} vs {} 컴퓨터가 이겼습니다.".format(user,comvs))
 
-    elif user == gamedict.get(3) and comvs == "보" :
+    elif user == "보" and comvs == "바위" :
         user1 += 1
         print("{} vs {} 사용자가 이겼습니다.".format(user,comvs))
 
