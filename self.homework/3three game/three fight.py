@@ -62,8 +62,7 @@ for i in range(10) :
         user1 += 1
         print("{} vs {} 사용자가 이겼습니다.".format(user,comvs))
 
-    else :
-        if user == comvs :
-            print("{} vs {} 비겼습니다.".format(user,comvs))
+    elif user == comvs :
+         print("{} vs {} 비겼습니다.".format(user,comvs))
 
     match += 1
