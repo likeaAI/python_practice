@@ -21,7 +21,7 @@ match = 0
 # 모두 비기는 경우의 수
 for i in range(10) :
     user = input("가위,바위, 보 중에 낼것을 입력해주세요 : ")  # 나중에 가위바위보만 입력하게 할수있을까  ?
-    com = rd.randint(1, 4)
+    com = 1
     comvs = gamedict.get(com)
 
     if user1 == 3 :
@@ -35,11 +35,11 @@ for i in range(10) :
 
 
     # user 가위를 냈을때
-    elif user == gamedict.get(1) and comvs == "바위" :
+    elif user == "가위" and comvs == "바위" :
         cpu += 1
         print("{} vs {} 컴퓨터가 이겼습니다.".format(user,comvs))
 
-    elif user == gamedict.get(1) and comvs == "보" :
+    elif user == "가위"  and comvs == "보" :
         user1 += 1
         print("{} vs {} 사용자가 이겼습니다.".format(user,comvs))
 
