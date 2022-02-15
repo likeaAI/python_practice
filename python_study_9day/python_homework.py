@@ -81,14 +81,14 @@ hwl4 = []
 hwl6 = []
 for i in range(0 , 234) : # 이걸 프로그램상으로 어떻게 구현해야할까...
     hwl = [mpgLst[i][1], mpgLst[i][4] , mpgLst[i][8]]
-#     for j in range(0,234) :
-#         if int(mpgLst[j][4]) <= 4 :
-#             hwl4.append(hwl)
-#         elif int(mpgLst[j][4]) >= 6 :
-#             hwl6.append(hwl)
-#     # 배기량을 기준으로 4와 6을 리스트로 분리 완료
-# print(hwl4)
-#
+    for j in range(0,234) :
+        if int(mpgLst[j][4]) <= 4 :
+            hwl4.append(mpgLst[j][1], mpgLst[j][4] , mpgLst[j][8])
+        elif int(mpgLst[j][4]) >= 6 :
+            hwl6.append(mpgLst[j][1], mpgLst[j][4] , mpgLst[j][8])
+    # 배기량을 기준으로 4와 6을 리스트로 분리 완료
+print(hwl4)
+
 
 
     # print(hwl) # 모든 리스트에서 배기량 의 값을 뽑아냈다. 그렇다면 연비도 같이 표현할수있을까 , 딕셔너리로 같이 묶었다.
