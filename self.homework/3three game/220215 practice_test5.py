@@ -17,3 +17,9 @@ for y in range(1,11 ) :
     for x in range(y*2 - 1 ) :
         print('*', end= '')
     print(' ')
+
+# 파이썬문법 print end옵션이 관건이다.  end옵션은 그뒤의 출력값이 이어서 출력한다.
+# or 구문으로 돌려도 연달아 연결할수있다는 의미 (사실 이게 효율적인지는 잘 모르겠다만 )
+for t in range(10 ) :
+    a =  2t+ 3
+    print(type(a), a * '!')
