@@ -14,7 +14,7 @@ for _ in range(w_life) :
         w_percentage = 1
         user_percentage = r.randint(1, 11)
         if w_percentage == user_percentage :
-           print("성공했습니다. {}만에 성공했습니다.".format(try_life))
+           print("성공했습니다. {}트만에 성공했습니다.".format(try_life))
            start += 1
 
         else :
@@ -27,7 +27,7 @@ for _ in range(w_life) :
           w_percentage = 1
           user_percentage = r.randint(1, 101)
           if w_percentage == user_percentage :
-             print("성공했습니다. {}만에 성공하였습니다. ") # 횟수를 어떻게 표현해야 할가 97번이면
+             print("성공했습니다. {}트만에 성공하였습니다. ") # 횟수를 어떻게 표현해야 할가 97번이면
              start += 1
 
           else:
@@ -37,11 +37,15 @@ for _ in range(w_life) :
 
 
     elif start == 3 :
-          print("레벨 2 무기를 업그레이드 합니다. 확률은 0.1% 이며 재도전 기회는 {}번입니다.".format(w_life))
+          print("레벨 3 무기를 업그레이드 합니다. 확률은 0.1% 이며 재도전 기회는 {}번입니다.".format(w_life))
           w_percentage = 1
           user_percentage = r.randint(1, 1001)
           if w_percentage == user_percentage :
-             print("성공했습니다. 축하합니다. 레벨 3모두 통과하였습니다. 복권이나 확률형 현질 아이템을 해보시길 바랍니다.")
+             print("성공했습니다. {}트만에 성공하였습니다.".format(try_life))
+             print(" 축하합니다. 레벨 3모두 통과하였습니다. 복권이나 확률형 현질 아이템을 해보시길 바랍니다.")
+             start += 1
+
+
 
 
           else:
@@ -50,5 +54,7 @@ for _ in range(w_life) :
              print(" 실패했습니다. 도전기회는 {}회 입니다.".format(w_life))
 
 
-
-
+    else :
+        if start == 4 :
+            print(f"무기레벨 {start - 1 } 성공하였습니다. 그리고 총 도전횟수는 {try_life} 입니다. ")
+            break
