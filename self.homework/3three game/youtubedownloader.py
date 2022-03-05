@@ -14,7 +14,13 @@ if main == 1 :
 
     file_name = yt.title
     print(file_name)
-
+    print("길이 : ", yt.length)
+    print("게시자 : ", yt.author)
+    print("게시날짜 : ", yt.publish_date)
+    print("조회수 : ", yt.views)
+    print("키워드 : ", yt.keywords)
+    print("설명 : ", yt.description)
+    print("썸네일 : ", yt.thumbnail_url)
 
     #비디오 다운로드(해상도 가장 좋은 것으로 필터)
     yt.streams.filter(adaptive=True, file_extension='mp4', only_video=True).order_by\
@@ -33,11 +39,11 @@ if main == 1 :
 
 
 else :
+
     url2 = input("다운받을  플레이리스트 주소를 복사해서 넣어보자. :  ")
-    p = Playlist(url2)
-    yt2 = pytube.YouTube(url2)
-    for video in p.videos:
-        yt2.streams.filter(adaptive=True, file_extension='mp4', only_audio=True).order_by('abr').desc().first() \
-            .download('D:\DOWNLOAD2\youtube\downloadmusic', yt2.title)
-        file_name2 = yt2.title
-        print(file_name2)
+    p2 = Playlist(url2)
+    for video in p2.videos:
+
+        video.streams.filter(adaptive=True, file_extension='mp4', only_audio=True).order_by('abr').desc().first() \
+            .download('D:\DOWNLOAD2\youtube\downloadmusic')
+
