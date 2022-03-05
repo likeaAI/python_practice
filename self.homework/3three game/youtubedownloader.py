@@ -15,8 +15,7 @@ if main == 1 :
     file_name = yt.title
     print(file_name)
 
-    #유튜브 객체에서 스트리밍 관련 모든 것 가져오기
-    #리스트 프린트해주기
+
     #비디오 다운로드(해상도 가장 좋은 것으로 필터)
     yt.streams.filter(adaptive=True, file_extension='mp4', only_video=True).order_by\
         ('resolution').desc().first().download('D:\DOWNLOAD2\youtube\only video', yt.title)
@@ -40,3 +39,5 @@ else :
     for video in p.videos:
         yt2.streams.filter(adaptive=True, file_extension='mp4', only_audio=True).order_by('abr').desc().first() \
             .download('D:\DOWNLOAD2\youtube\downloadmusic', yt2.title)
+        file_name2 = yt2.title
+        print(file_name2)
