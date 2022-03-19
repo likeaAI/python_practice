@@ -40,6 +40,34 @@ def run_timing():
     average_time = total_time / number_of_runs
     print(f'Average of {average_time}, over {number_of_runs} runs')
 
-run_timing()
 
 
+
+# pig lattin
+# a,e,i,o,u 끝나면 way 추가 , 그외에 첫글자 뒤로가서 ay 추가
+
+word = "apple"
+piglist = ["a","e","o","u","i"]
+if word[0] in piglist :
+    print("possible")
+
+else :
+    print("impossible")
+
+# 다른 바식
+
+
+pl_sentence ="this is a test translation"
+def piglattin(pl_sentence):
+    def01 = pl_sentence.split()
+    new_sentence = []
+    print(def01)
+    for i in def01 :
+        if i[0] in 'aeiou' :
+            print(i + "way")
+        else :
+            i[-1]+ i + "ay"
+
+
+
+piglattin(pl_sentence)
