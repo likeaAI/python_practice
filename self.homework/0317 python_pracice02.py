@@ -64,10 +64,30 @@ def piglattin(pl_sentence):
     print(def01)
     for i in def01 :
         if i[0] in 'aeiou' :
-            print(i + "way")
+            pig01 = i + "way"
+            new_sentence.append(pig01)
         else :
-            i[-1]+ i + "ay"
+            pig02 = i[-1]+ i + "ay"
+            new_sentence.append(pig02)
+    return ' '.join(new_sentence)
+
+print(piglattin(pl_sentence))
+
+
+def pl_sentence(sentence):
+    output = []
+    for word in sentence.split():
+        if word[0] in 'aeiou':
+            output.append(f"{word}way")
+        else:
+            output.append(f"{word[1:]}{word[0]}ay")
+
+    return ' '.join(output)
+
+print(pl_sentence('this is a test'))
 
 
 
-piglattin(pl_sentence)
+
+
+
