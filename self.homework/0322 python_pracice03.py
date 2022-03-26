@@ -12,3 +12,11 @@ def alphabetize_names(list_of_dicts):
     return sorted(list_of_dicts, key=operator.itemgetter('last', 'first'))
 
 print(alphabetize_names(PEOPLE))
+
+
+from collections import Counter
+words  = ['this' , 'is' , 'an' , 'elementary' , 'test' , 'example']
+def noname() :
+    for word in words :
+
+
