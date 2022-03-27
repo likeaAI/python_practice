@@ -21,7 +21,13 @@ print(test04)
 test05 = [(x,y) for x in range(5) if x%2 \
           for y in range(5) if y%3]
 
-print(test05)
+
+test05_1 = [x for x in range(5) if x%2 ]
+test05_2 = [y for y in range(5) if y%3]
+
+
+
+print(test05_1 , test05_2)
 
 words = 'this is a bunch of words.'.split()
 x = map(len, words)
@@ -31,6 +37,9 @@ def is_a_long_word(one_word) :
     return len(one_word) > 4
 x = filter(is_a_long_word, words)
 print(''.join(x))
+
+
+
 
 
 
