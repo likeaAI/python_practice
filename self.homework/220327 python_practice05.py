@@ -44,9 +44,52 @@ from collections import Counter
 import re
 
 def mostCommonWord(self, paragraph) :
-words = [word for word in re.sub(r'[^\w]', ' ' , paragraph)  \
-    .lower().split()\
-    if word  not in banned ]
+    words = [word for word in re.sub(r'[^\w]', ' ' , paragraph)  \
+        .lower().split()\
+        if word  not in banned ]
 
-counts = collections.Counter(words)
-return counts.most_common(1)[0][0]
+    counts = collections.Counter(words)
+    return counts.most_common(1)[0][0]
+
+
+
+a = ['cde' , 'cfc' , 'abc']
+def fn(s) :
+    return s[0], s[-1]
+print(sorted(a, key=fn))
+
+# 그룹 애너그램
+
+input = ['eat'  , 'tea' , 'tan' , 'ate' , 'nat' , 'bat']
+
+s = sorted(input)
+print(s)
+
+
+def groupAnagrams(self,strs) :
+    anagrams = collections.defaultdict(list)
+
+    for word in strs :
+        anagrams[''.join(sorted(word))].append(word)
+    return list(anagrams.values())
+
+
+# 가장 긴 팰린드롬 부분 문자열
+
+def longestPalindrome(self, s ) :
+    def expand(left : int , right : int) :
+        while left >= 0 and right < lens(s) and s[left] == s[rigth]
+            left -= 1
+            right += 1
+        return s[left + 1:right]
+
+    if lens(s) < or s == s[::-1] :
+        return s
+
+    result = ''
+
+    for i in range(len(s) - 1 ) :
+        result = max(result, expand(i, i +1), expand(i, i + 2), key = len )
+        return result
+
+
