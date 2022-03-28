@@ -78,12 +78,12 @@ def groupAnagrams(self,strs) :
 
 def longestPalindrome(self, s ) :
     def expand(left : int , right : int) :
-        while left >= 0 and right < lens(s) and s[left] == s[rigth]
+        while left >= 0 and right < len(s) and s[left] == s[right] :
             left -= 1
             right += 1
         return s[left + 1:right]
 
-    if lens(s) < or s == s[::-1] :
+    if len(s) <  2  or s == s[::-1] :
         return s
 
     result = ''
@@ -91,5 +91,24 @@ def longestPalindrome(self, s ) :
     for i in range(len(s) - 1 ) :
         result = max(result, expand(i, i +1), expand(i, i + 2), key = len )
         return result
+
+
+# 서로 다른 숫자의 갯수 찾기
+numbers = [1,2,3,1,2,3,4,1]
+
+print(len(numbers)) # 8 리턴
+
+unique_numbers = set(numbers)
+print(unique_numbers)
+# set 중복 제거후 리턴
+
+
+def how_many_different_numbers(numbers) :
+    unique_numbers = set(numbers)
+    return len(unique_numbers)
+
+print(how_many_different_numbers([1,2,3,1,2,3,4,1]))
+
+
 
 
