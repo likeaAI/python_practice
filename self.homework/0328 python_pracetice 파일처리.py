@@ -1,4 +1,7 @@
 # 아이디와 패스워드로 나눠보자.
+# 이해가 안가는데 ?
+
+
 
 def passwd_to_dict(filename) :
     users = {}
@@ -9,4 +12,3 @@ def passwd_to_dict(filename) :
                 users[user_info[0]] = int(user_info[2])
     return users
 
-passwd_to_dict('C:\\Users\\crid2\\password.csv' )
