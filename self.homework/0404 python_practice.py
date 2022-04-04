@@ -24,3 +24,8 @@ def print_score(dirname) :
             print(f'\tmin {min_score}')
             print(f'\tmax {max_score}')
             print(f'\taverage {average_score}')
+
+print_score('C:/Users/crid2/python_study/scores')
+
+# SyntaxError: (unicode error) 'unicodeescape' codec can't decode bytes in position 2-3: truncated \UXXXXXXXX escape
+# python에서 경로를 \\\\ 이걸로 하면 에러남 (윈도우 그냥 복사시) 이경로로됨 ///// 이걸로 수정할것.
