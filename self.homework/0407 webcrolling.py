@@ -9,3 +9,5 @@ print(tables)
 
 df = pd.DataFrame(tables[0] , columns=['순위' , '선수명' , '팀명' , 'AVG'])
 print(df)
+
+
