@@ -25,11 +25,20 @@ for page in range(1, 3):
     a_tags = list.find_elements_by_tag_name('a')
 
     # print( len(a_tags) )
+    data = []
+
     for idx in range(len(a_tags)):
-        a_tags[idx].click()
+        a_tags[idx].click() # 각 제품링크 href 를 클릭을 의미
         detail = driver.find_element_by_class_name('detailCnt2')
-        print(detail.text)
-        print('*' * 100)
+        detail2 = driver.find_element_by_class_name('detailCnt1')
+
+
+        data.append(detail2.text)
+        data.append(detail.text)
+        data.append('*' * 100)
+        # print(detail2.text)
+        # print(detail.text)
+        # print('*' * 100)
         sleep(2)
 
         driver.back()
@@ -38,6 +47,4 @@ for page in range(1, 3):
         a_tags = list.find_elements_by_tag_name('a')
 
 
-
-
-
+print(data)
