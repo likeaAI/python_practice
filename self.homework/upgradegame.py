@@ -1,4 +1,5 @@
 import random as r
+from time   import sleep , time
 
 print("leve1 확률 10% 도전할 기회를 10번정도로 추천합니다." )
 print("leve2 확률 1% 도전할 기회를 100번정도로 추천합니다.")
@@ -14,12 +15,15 @@ for _ in range(w_life) :
         w_percentage = 1
         user_percentage = r.randint(1, 11)
         if w_percentage == user_percentage :
+           sleep(3)
            print("성공했습니다. {}트만에 성공했습니다.".format(try_life))
            start += 1
+
 
         else :
             w_life -= 1
             try_life += 1
+            sleep(3)
             print(" 실패했습니다. 도전기회는 {}회 입니다.".format(w_life))
 
     elif start == 2 :
@@ -27,12 +31,14 @@ for _ in range(w_life) :
           w_percentage = 1
           user_percentage = r.randint(1, 101)
           if w_percentage == user_percentage :
+             sleep(3)
              print("성공했습니다. {}트만에 성공하였습니다. ") # 횟수를 어떻게 표현해야 할가 97번이면
              start += 1
 
           else:
              w_life -= 1
              try_life += 1
+             sleep(3)
              print(" 실패했습니다. 도전기회는 {}회 입니다.".format(w_life))
 
 
@@ -41,6 +47,7 @@ for _ in range(w_life) :
           w_percentage = 1
           user_percentage = r.randint(1, 1001)
           if w_percentage == user_percentage :
+             sleep(3)
              print("성공했습니다. {}트만에 성공하였습니다.".format(try_life))
              print(" 축하합니다. 레벨 3모두 통과하였습니다. 복권이나 확률형 현질 아이템을 해보시길 바랍니다.")
              start += 1
