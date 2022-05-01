@@ -2,29 +2,22 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import time
 import urllib.request
+
 path = 'C:/Users/crid2/driver/chromedriver.exe'
-
-# url =''
-# driver.get("https://www.google.co.kr/imghp?hl=ko&ogbl")
-
-# mail_address = 'crid2450@gmail.com'
-# password = 'g5y013650e!'
-
-
 driver = webdriver.Chrome(path)
 driver.get('https://www.google.co.kr/imghp?hl=ko&ogbl')
 
-
 elem = driver.find_element_by_name('q')
-elem.send_keys('dream')
+elem.send_keys('cass 맥주')
 elem.send_keys(Keys.RETURN)
 images = driver.find_elements_by_css_selector(' .bRMDJf.islir')
 
 # scroll down function
 SCROLL_PAUSE_TIME = 1
-
 # Get scroll height
 last_height = driver.execute_script("return document.body.scrollHeight")
+
+
 
 while True:
     # Scroll down to bottom
@@ -43,14 +36,17 @@ while True:
 
     last_height = new_height
 
+
+
+
 # image search and local download
 count = 1
 for image in images :
     try :
         image.click()
         img_url = driver.find_element_by_css_selector('.n3VNCb').get_attribute('src')
-        urllib.request.urlretrieve(img_url, str(count) + '.jpg')
-        time.sleep(1)
+        urllib.request.urlretrieve(img_url, str(count) + '.png')
+        time.sleep(2)
         count += 1
     except :
         pass

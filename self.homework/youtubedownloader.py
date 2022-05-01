@@ -1,7 +1,7 @@
 import pytube
 from moviepy.editor import *
 from pytube import Playlist
-import time
+
 
 
 print("다운로드 유형을 고르세요 ")
