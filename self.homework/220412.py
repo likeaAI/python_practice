@@ -8,7 +8,7 @@ driver = webdriver.Chrome(path)
 driver.get('https://www.google.co.kr/imghp?hl=ko&ogbl')
 
 elem = driver.find_element_by_name('q')
-elem.send_keys('cass 맥주')
+elem.send_keys('OB 맥주')
 elem.send_keys(Keys.RETURN)
 images = driver.find_elements_by_css_selector(' .bRMDJf.islir')
 
