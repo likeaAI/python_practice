@@ -1,5 +1,4 @@
 import csv
-
 from selenium import webdriver
 from bs4 import BeautifulSoup
 import numpy  as np
@@ -13,13 +12,15 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 
+
+
 path = 'C:/Users/crid2/driver/chromedriver.exe'
 driver = webdriver.Chrome(path)
 
 news_headline = []
 
 
-numbers = range(0,10)
+numbers = range(1,2000)
 for number in numbers :
     time.sleep(3)
     driver.get('https://www.mk.co.kr/news/stock/?page={}'.format(number))
@@ -29,8 +30,7 @@ for number in numbers :
          news_headline.append(title.text)
 
 
-
-with open('news_headline.csv' , 'w' , encoding='utf-8') as f :
+with open('news_headline_2022.csv', 'w' , encoding='utf-8') as f :
     writer = csv.writer(f)
     writer.writerow(news_headline)
 
