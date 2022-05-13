@@ -20,9 +20,9 @@ driver = webdriver.Chrome(path)
 news_headline = []
 
 
-numbers = range(1,2000)
+numbers = range(1,1000)
 for number in numbers :
-    time.sleep(3)
+    time.sleep(4)
     driver.get('https://www.mk.co.kr/news/stock/?page={}'.format(number))
 
     for i in range(1,26) :
@@ -30,7 +30,7 @@ for number in numbers :
          news_headline.append(title.text)
 
 
-with open('news_headline_2022.csv', 'w' , encoding='utf-8') as f :
+with open('news_headline_total.csv', 'w' , encoding='utf-8') as f :
     writer = csv.writer(f)
     writer.writerow(news_headline)
 
