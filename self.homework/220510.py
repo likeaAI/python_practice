@@ -1,22 +1,15 @@
-import csv
+
 from selenium import webdriver
-from bs4 import BeautifulSoup
-import numpy  as np
-import pandas as pd
-import requests
-import re
-from time    import sleep ,time
-import time as time
-from random  import randint
-from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support import expected_conditions as EC
+
+import time as time
+import csv
+
 
 
 
 path = 'C:/Users/crid2/driver/chromedriver.exe'
 driver = webdriver.Chrome(path)
-
 news_headline = []
 
 
@@ -30,7 +23,7 @@ for number in numbers :
          news_headline.append(title.text)
 
 
-with open('news_headline_total.csv', 'w' , encoding='utf-8') as f :
+with open('news_headline_000.csv', 'w' , encoding='utf-8') as f :
     writer = csv.writer(f)
     writer.writerow(news_headline)
 
