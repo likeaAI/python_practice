@@ -1,5 +1,3 @@
-from _xxsubinterpreters import get_current
-
 from selenium.webdriver.common.keys import Keys
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -38,13 +36,6 @@ for word in text_word :
 
 
 print(mean_words)
-
-
-
-
-
-
-
 
 
 #
